@@ -1,11 +1,32 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start on app!</Text>
-      <Text>Mera Text nu med en förändring ytterligare text</Text>
+      <Text>Hej</Text>
+     
+      <FlatList
+        data={[
+          {key: 'Devin'},
+          {key: 'Dan'},
+          {key: 'Dominic'},
+          
+        ]}
+        renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+      />
+     
+    
+
+
+
+
+
+
+
+
+
+     
       <StatusBar style="auto" />
     </View>
   );
@@ -17,5 +38,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightblue',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop:100,
   },
 });
