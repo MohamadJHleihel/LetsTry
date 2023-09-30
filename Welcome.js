@@ -4,7 +4,7 @@ import Fancybox from './Fancybox';
 import { useState } from 'react';
 import Readmore from './Readmore';
 
-export default function Welcome() {
+export default function Welcome({navigation}) {
 
   const [addname, onAddname] = useState("Namn");
 
@@ -20,7 +20,10 @@ export default function Welcome() {
   return (
     <View style={styles.container}>
     
-      <Readmore/>
+      <Button title ='Läsa mera' onPress= {() =>{
+        navigation.navigate("Läsmer", {fruit: "papaya"});
+
+      }}/>
       <Text>Hej</Text>
 
 
@@ -66,6 +69,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightblue',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop:100,
+    
   },
 });
