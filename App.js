@@ -12,12 +12,11 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Hej</Text>
-      <TextInput onChange={onAddname} value={addname}/>
+      <TextInput onChangeText={onAddname} value={addname}/>
 
       <Button title='lägg till' onPress= {() =>{
-        var oldpeople = people;
-        oldpeople.push({key: addname, lastname: addname});
-        setPeople(oldpeople);
+        const newlist = people.concat({key: addname, lastname: addname});
+        setPeople(newlist);
         
       }}/>
 
@@ -25,7 +24,7 @@ export default function App() {
 
       <FlatList
         data={people}
-        renderItem={({item}) => <Fancybox/>}
+        renderItem={({item}) => <Fancybox name={item} />}
       />
      
     
