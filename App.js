@@ -2,53 +2,26 @@ import { StatusBar } from 'expo-status-bar';
 import { Button, FlatList, StyleSheet, Text, TextInput, View } from 'react-native';
 import Fancybox from './Fancybox';
 import { useState } from 'react';
+import Readmore from './Readmore';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import Welcome from './Welcome';
 
 export default function App() {
 
-  const [addname, onAddname] = useState("Namn");
-
-  const [people, setPeople] = useState([{key: 'Xerxes', lastname:'Xerxsson'}]);
+  const Stack = createNativeStackNavigator();
 
   return (
-    <View style={styles.container}>
-      <Text>Hej</Text>
-      <TextInput onChangeText={onAddname} value={addname}/>
-
-      <Button title='lägg till' onPress= {() =>{
-        const newlist = people.concat({key: addname, lastname: addname});
-        setPeople(newlist);
-        
-      }}/>
-
-
-
-      <FlatList
-        data={people}
-        renderItem={({item}) => <Fancybox name={item} />}
-      />
-     
     
+    <NavigationContainer>
+     <Stack.Navigator>
+       <Stack.Screen name='Starten' component ={Welcome} />
+       <Stack.Screen name= 'Läsmer'component={Readmore} />
+     </Stack.Navigator>
 
 
 
-
-
-
-
-
-
-     
-      <StatusBar style="auto" />
-    </View>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'lightblue',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop:100,
-  },
-});
