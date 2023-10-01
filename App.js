@@ -16,7 +16,9 @@ export default function App() {
     <NavigationContainer>
      <Stack.Navigator>
        <Stack.Screen name='Starten' component ={Welcome} />
-       <Stack.Screen name= 'Läsmer'component={Readmore} />
+       <Stack.Screen name= 'Läsmer'component={Readmore} /> 
+       
+       
      </Stack.Navigator>
 
 

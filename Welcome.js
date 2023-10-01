@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, FlatList, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, FlatList, StyleSheet, Text, TextInput, TouchableWithoutFeedback,TouchableOpacity, View } from 'react-native';
 import Fancybox from './Fancybox';
 import { useState } from 'react';
 import Readmore from './Readmore';
@@ -24,6 +24,11 @@ export default function Welcome({navigation}) {
         navigation.navigate("Läsmer", {fruit: "papaya"});
 
       }}/>
+      <TouchableWithoutFeedback onPress={() => {
+        onAddname("xyz");
+      }}>
+      <Text>Test touch</Text>
+      </TouchableWithoutFeedback>
       <Text>Hej</Text>
 
 
@@ -40,11 +45,18 @@ export default function Welcome({navigation}) {
         
       }}/>
 
-
+      
 
       <FlatList
         data={people}
-        renderItem={({item}) => <Fancybox name={item} />}
+        renderItem={({item}) =>
+         <TouchableOpacity onPress={() =>{
+            console. log ("KLICK RAD" + item. lastname);
+            navigation. navigate ("Läsmer", {fruit: "Kiwi"});
+            }}>
+        <Fancybox name={item}/>
+        </TouchableOpacity>
+        }
       />
      
     
