@@ -51,8 +51,8 @@ export default function Welcome({navigation}) {
         data={people}
         renderItem={({item}) =>
          <TouchableOpacity onPress={() =>{
-            console. log ("KLICK RAD" + item. lastname);
-            navigation. navigate ("Läsmer", {fruit: "Kiwi"});
+           
+            navigation. navigate ("Läsmer", );
             }}>
         <Fancybox name={item}/>
         </TouchableOpacity>
